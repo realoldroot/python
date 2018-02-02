@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from flask import Flask, Response, jsonify, request
 
 
@@ -11,6 +12,7 @@ class MyResponse(Response):
 
 
 app = Flask(__name__)
+app.debug = True
 app.config['JSON_AS_ASCII'] = False
 app.response_class = MyResponse
 
@@ -40,6 +42,13 @@ def login():
         }
     else:
         return '用户名或密码没有输入'
+
+
+@app.errorhandler(404)
+def not_found(error):
+    print("404错误了,%s", error)
+    result = {'error': '404'}
+    return result
 
 
 if __name__ == '__main__':
