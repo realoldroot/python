@@ -1,5 +1,5 @@
 ### python  example
 
 - flask example
-- 微信机器人 exampl
+- 微信机器人 example
 
